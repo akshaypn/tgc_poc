@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -8,7 +8,7 @@ import {
   Button,
   Chip,
   Avatar,
-} from '@mui/material';
+} from "@mui/material";
 import {
   Event as EventIcon,
   Groups as GroupsIcon,
@@ -16,14 +16,14 @@ import {
   TrendingUp as TrendingIcon,
   CalendarToday as CalendarIcon,
   ArrowForward as ArrowIcon,
-} from '@mui/icons-material';
-import PageContainer from '../../components/common/Layout/PageContainer';
-import Section from '../../components/common/Layout/Section';
-import EventCard from '../../components/domain/Event/EventCard';
-import CommunityCard from '../../components/domain/Community/CommunityCard';
-import { useAuth } from '../../context/AuthContext';
-import { mockEvents } from '../../mocks/events';
-import { getJoinedCommunities } from '../../mocks/communities';
+} from "@mui/icons-material";
+import PageContainer from "../../components/common/Layout/PageContainer";
+import Section from "../../components/common/Layout/Section";
+import EventCard from "../../components/domain/Event/EventCard";
+import CommunityCard from "../../components/domain/Community/CommunityCard";
+import { useAuth } from "../../context/AuthContext";
+import { mockEvents } from "../../mocks/events";
+import { getJoinedCommunities } from "../../mocks/communities";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
@@ -42,8 +42,12 @@ const HomeScreen = () => {
     <PageContainer>
       {/* Welcome Section */}
       <Box sx={{ mb: { xs: 3, md: 4 } }}>
-        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' } }}>
-          Welcome back, {user?.name?.split(' ')[0] || 'there'}! 👋
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{ fontSize: { xs: "1.5rem", md: "2.125rem" } }}
+        >
+          Welcome back, {user?.name?.split(" ")[0] || "there"}! 👋
         </Typography>
         <Typography variant="body1" color="text.secondary">
           Discover events, connect with communities, and earn karma
@@ -71,7 +75,7 @@ const HomeScreen = () => {
                 variant="outlined"
                 fullWidth
                 endIcon={<ArrowIcon />}
-                onClick={() => navigate('/tickets')}
+                onClick={() => navigate("/tickets")}
                 sx={{ py: { xs: 1.25, md: 1.5 } }}
               >
                 View All My Tickets
@@ -87,7 +91,7 @@ const HomeScreen = () => {
           >
             <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }}>
               {userCommunities.slice(0, 3).map((community) => (
-                <Grid item xs={12} sm={6} md={4} key={community.id}>
+                <Grid item xs={12} sm={6} key={community.id}>
                   <CommunityCard community={community} />
                 </Grid>
               ))}
@@ -98,7 +102,7 @@ const HomeScreen = () => {
                 variant="outlined"
                 fullWidth
                 endIcon={<ArrowIcon />}
-                onClick={() => navigate('/communities')}
+                onClick={() => navigate("/communities")}
                 sx={{ py: { xs: 1.25, md: 1.5 } }}
               >
                 View All Communities
@@ -125,7 +129,7 @@ const HomeScreen = () => {
                 variant="outlined"
                 fullWidth
                 endIcon={<ArrowIcon />}
-                onClick={() => navigate('/events')}
+                onClick={() => navigate("/events")}
                 sx={{ py: { xs: 1.25, md: 1.5 } }}
               >
                 Browse All Events
@@ -138,20 +142,31 @@ const HomeScreen = () => {
         <Grid item xs={12} lg={4}>
           {/* Karma Card */}
           <Paper sx={{ p: { xs: 2.5, md: 3 }, mb: { xs: 2, md: 3 } }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: { xs: 1.5, md: 2 } }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                mb: { xs: 1.5, md: 2 },
+              }}
+            >
               <TrendingIcon color="success" />
               <Typography variant="h6">Your Growth</Typography>
             </Box>
             <Typography variant="h3" sx={{ mb: { xs: 1, md: 1.5 } }}>
               {user?.karma || 450} Karma
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: { xs: 2, md: 2.5 } }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ mb: { xs: 2, md: 2.5 } }}
+            >
               Keep attending events and contributing to earn more karma!
             </Typography>
             <Button
               variant="contained"
               fullWidth
-              onClick={() => navigate('/profile')}
+              onClick={() => navigate("/profile")}
               sx={{ py: { xs: 1.25, md: 1.5 } }}
             >
               View Profile
@@ -163,12 +178,18 @@ const HomeScreen = () => {
             <Typography variant="h6" sx={{ mb: { xs: 1.5, md: 2 } }}>
               Quick Actions
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1.5, md: 2 } }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: { xs: 1.5, md: 2 },
+              }}
+            >
               <Button
                 variant="outlined"
                 fullWidth
                 startIcon={<EventIcon />}
-                onClick={() => navigate('/events')}
+                onClick={() => navigate("/events")}
                 sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 Browse Events
@@ -177,7 +198,7 @@ const HomeScreen = () => {
                 variant="outlined"
                 fullWidth
                 startIcon={<GroupsIcon />}
-                onClick={() => navigate('/communities')}
+                onClick={() => navigate("/communities")}
                 sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 Explore Communities
@@ -186,7 +207,7 @@ const HomeScreen = () => {
                 variant="outlined"
                 fullWidth
                 startIcon={<TicketIcon />}
-                onClick={() => navigate('/tickets')}
+                onClick={() => navigate("/tickets")}
                 sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 My Tickets
@@ -195,7 +216,7 @@ const HomeScreen = () => {
                 variant="outlined"
                 fullWidth
                 startIcon={<CalendarIcon />}
-                onClick={() => navigate('/karma')}
+                onClick={() => navigate("/karma")}
                 sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 Karma History
@@ -205,29 +226,52 @@ const HomeScreen = () => {
 
           {/* Active Communities Quick View */}
           <Paper sx={{ p: { xs: 2.5, md: 3 } }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: { xs: 1.5, md: 2 } }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: { xs: 1.5, md: 2 },
+              }}
+            >
               <Typography variant="h6">Active Communities</Typography>
-              <Chip label={userCommunities.length} size="small" color="primary" />
+              <Chip
+                label={userCommunities.length}
+                size="small"
+                color="primary"
+              />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1.5, md: 2 } }}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: { xs: 1.5, md: 2 },
+              }}
+            >
               {userCommunities.slice(0, 4).map((community) => (
                 <Box
                   key={community.id}
                   sx={{
-                    display: 'flex',
-                    alignItems: 'center',
+                    display: "flex",
+                    alignItems: "center",
                     gap: 1.5,
-                    cursor: 'pointer',
+                    cursor: "pointer",
                     p: { xs: 1, md: 1.25 },
                     borderRadius: 1.5,
-                    transition: 'background-color 0.2s',
-                    '&:hover': {
-                      bgcolor: 'action.hover',
+                    transition: "background-color 0.2s",
+                    "&:hover": {
+                      bgcolor: "action.hover",
                     },
                   }}
                   onClick={() => navigate(`/communities/${community.id}`)}
                 >
-                  <Avatar src={community.image} sx={{ width: { xs: 36, md: 40 }, height: { xs: 36, md: 40 } }} />
+                  <Avatar
+                    src={community.image}
+                    sx={{
+                      width: { xs: 36, md: 40 },
+                      height: { xs: 36, md: 40 },
+                    }}
+                  />
                   <Box sx={{ flex: 1, minWidth: 0 }}>
                     <Typography variant="subtitle2" noWrap>
                       {community.name}
@@ -245,7 +289,7 @@ const HomeScreen = () => {
                 fullWidth
                 size="small"
                 sx={{ mt: { xs: 1.5, md: 2 } }}
-                onClick={() => navigate('/communities')}
+                onClick={() => navigate("/communities")}
               >
                 View All
               </Button>

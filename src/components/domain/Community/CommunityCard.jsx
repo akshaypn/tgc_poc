@@ -33,8 +33,8 @@ const CommunityCard = ({ community }) => {
         alt={community.name}
         sx={{ objectFit: 'cover' }}
       />
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Box sx={{ display: 'flex', gap: 1, mb: 1, flexWrap: 'wrap' }}>
+      <CardContent sx={{ flexGrow: 1, p: { xs: 2, md: 2.5 } }}>
+        <Box sx={{ display: 'flex', gap: 1, mb: { xs: 1, md: 1.5 }, flexWrap: 'wrap' }}>
           <Chip label={community.category} size="small" color="primary" />
           {community.privacy === 'private' && (
             <Chip icon={<LockIcon />} label="Private" size="small" />
@@ -44,7 +44,7 @@ const CommunityCard = ({ community }) => {
           )}
         </Box>
 
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" sx={{ mb: { xs: 1, md: 1.5 } }}>
           {community.name}
         </Typography>
 
@@ -52,25 +52,26 @@ const CommunityCard = ({ community }) => {
           variant="body2"
           color="text.secondary"
           sx={{
-            mb: 2,
+            mb: { xs: 1.5, md: 2 },
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
+            lineHeight: 1.5,
           }}
         >
           {community.description}
         </Typography>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: { xs: 1.5, md: 2 } }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
             <PeopleIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
             <Typography variant="body2" color="text.secondary">
               {community.members.toLocaleString()}
             </Typography>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75 }}>
             <EventIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
             <Typography variant="body2" color="text.secondary">
               {community.events} events
@@ -86,11 +87,12 @@ const CommunityCard = ({ community }) => {
         </Box>
       </CardContent>
 
-      <CardActions sx={{ p: 2, pt: 0 }}>
+      <CardActions sx={{ p: { xs: 2, md: 2.5 }, pt: 0 }}>
         <Button
           fullWidth
           variant={community.isJoined ? 'outlined' : 'contained'}
           color="primary"
+          sx={{ py: { xs: 1, md: 1.25 } }}
         >
           {community.isJoined ? 'View Community' : 'Join Community'}
         </Button>

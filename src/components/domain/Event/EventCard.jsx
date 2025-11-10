@@ -56,13 +56,13 @@ const EventCard = ({ event }) => {
         alt={event.title}
         sx={{ objectFit: 'cover' }}
       />
-      <CardContent sx={{ flexGrow: 1 }}>
-        <Box sx={{ display: 'flex', gap: 1, mb: 1, flexWrap: 'wrap' }}>
+      <CardContent sx={{ flexGrow: 1, p: { xs: 2, md: 2.5 } }}>
+        <Box sx={{ display: 'flex', gap: 1, mb: { xs: 1, md: 1.5 }, flexWrap: 'wrap' }}>
           <Chip label={event.type} size="small" color="primary" />
           <Chip label={availability.text} size="small" color={availability.color} />
         </Box>
 
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" sx={{ mb: { xs: 1, md: 1.5 } }}>
           {event.title}
         </Typography>
 
@@ -70,18 +70,19 @@ const EventCard = ({ event }) => {
           variant="body2"
           color="text.secondary"
           sx={{
-            mb: 2,
+            mb: { xs: 1.5, md: 2 },
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             display: '-webkit-box',
             WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
+            lineHeight: 1.5,
           }}
         >
           {event.description}
         </Typography>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mb: { xs: 0.75, md: 1 } }}>
           <CalendarIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
           <Typography variant="body2" color="text.secondary">
             {new Date(event.date).toLocaleDateString('en-IN', {
@@ -91,21 +92,21 @@ const EventCard = ({ event }) => {
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 1 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mb: { xs: 0.75, md: 1 } }}>
           <LocationIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
           <Typography variant="body2" color="text.secondary" noWrap>
             {event.location}
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, mb: { xs: 1.5, md: 2 } }}>
           <PeopleIcon sx={{ fontSize: 16, color: 'text.secondary' }} />
           <Typography variant="body2" color="text.secondary">
             {event.currentParticipants}/{event.maxParticipants} joined
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: { xs: 1.25, md: 1.5 } }}>
           <Avatar src={event.host.avatar} sx={{ width: 24, height: 24 }} />
           <Typography variant="caption" color="text.secondary">
             by {event.host.name}
@@ -120,12 +121,12 @@ const EventCard = ({ event }) => {
         </Box>
       </CardContent>
 
-      <CardActions sx={{ p: 2, pt: 0 }}>
+      <CardActions sx={{ p: { xs: 2, md: 2.5 }, pt: 0 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
-          <Typography variant="h6">
+          <Typography variant="h6" sx={{ fontSize: { xs: '1.125rem', md: '1.25rem' } }}>
             {getFeeDisplay(event.fee)}
           </Typography>
-          <Button variant="contained" color="primary" size="small">
+          <Button variant="contained" color="primary" size="small" sx={{ px: { xs: 2, md: 2.5 } }}>
             View Details
           </Button>
         </Box>

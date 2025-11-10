@@ -41,8 +41,8 @@ const HomeScreen = () => {
   return (
     <PageContainer>
       {/* Welcome Section */}
-      <Box sx={{ mb: 4 }}>
-        <Typography variant="h4" gutterBottom>
+      <Box sx={{ mb: { xs: 3, md: 4 } }}>
+        <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', md: '2.125rem' } }}>
           Welcome back, {user?.name?.split(' ')[0] || 'there'}! 👋
         </Typography>
         <Typography variant="body1" color="text.secondary">
@@ -50,7 +50,7 @@ const HomeScreen = () => {
         </Typography>
       </Box>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }}>
         {/* Main Content - Left Side */}
         <Grid item xs={12} lg={8}>
           {/* Your Upcoming Events */}
@@ -58,7 +58,7 @@ const HomeScreen = () => {
             title="Your Upcoming Events"
             subtitle={`${userEvents.length} events you're registered for`}
           >
-            <Grid container spacing={3}>
+            <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }}>
               {userEvents.map((event) => (
                 <Grid item xs={12} sm={6} key={event.id}>
                   <EventCard event={event} />
@@ -66,12 +66,13 @@ const HomeScreen = () => {
               ))}
             </Grid>
 
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: { xs: 2, md: 3 } }}>
               <Button
                 variant="outlined"
                 fullWidth
                 endIcon={<ArrowIcon />}
                 onClick={() => navigate('/tickets')}
+                sx={{ py: { xs: 1.25, md: 1.5 } }}
               >
                 View All My Tickets
               </Button>
@@ -82,9 +83,9 @@ const HomeScreen = () => {
           <Section
             title="Your Communities"
             subtitle={`${userCommunities.length} communities you've joined`}
-            sx={{ mt: 4 }}
+            sx={{ mt: { xs: 3, md: 4 } }}
           >
-            <Grid container spacing={3}>
+            <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }}>
               {userCommunities.slice(0, 3).map((community) => (
                 <Grid item xs={12} sm={6} md={4} key={community.id}>
                   <CommunityCard community={community} />
@@ -92,12 +93,13 @@ const HomeScreen = () => {
               ))}
             </Grid>
 
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: { xs: 2, md: 3 } }}>
               <Button
                 variant="outlined"
                 fullWidth
                 endIcon={<ArrowIcon />}
                 onClick={() => navigate('/communities')}
+                sx={{ py: { xs: 1.25, md: 1.5 } }}
               >
                 View All Communities
               </Button>
@@ -108,9 +110,9 @@ const HomeScreen = () => {
           <Section
             title="Discover More Events"
             subtitle="Events you might be interested in"
-            sx={{ mt: 4 }}
+            sx={{ mt: { xs: 3, md: 4 } }}
           >
-            <Grid container spacing={3}>
+            <Grid container spacing={{ xs: 2, sm: 2.5, md: 3 }}>
               {featuredEvents.map((event) => (
                 <Grid item xs={12} sm={6} key={event.id}>
                   <EventCard event={event} />
@@ -118,12 +120,13 @@ const HomeScreen = () => {
               ))}
             </Grid>
 
-            <Box sx={{ mt: 3 }}>
+            <Box sx={{ mt: { xs: 2, md: 3 } }}>
               <Button
                 variant="outlined"
                 fullWidth
                 endIcon={<ArrowIcon />}
                 onClick={() => navigate('/events')}
+                sx={{ py: { xs: 1.25, md: 1.5 } }}
               >
                 Browse All Events
               </Button>
@@ -134,37 +137,39 @@ const HomeScreen = () => {
         {/* Sidebar - Right Side */}
         <Grid item xs={12} lg={4}>
           {/* Karma Card */}
-          <Paper sx={{ p: 3, mb: 3 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+          <Paper sx={{ p: { xs: 2.5, md: 3 }, mb: { xs: 2, md: 3 } }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: { xs: 1.5, md: 2 } }}>
               <TrendingIcon color="success" />
               <Typography variant="h6">Your Growth</Typography>
             </Box>
-            <Typography variant="h3" sx={{ mb: 1 }}>
+            <Typography variant="h3" sx={{ mb: { xs: 1, md: 1.5 } }}>
               {user?.karma || 450} Karma
             </Typography>
-            <Typography variant="body2" color="text.secondary" paragraph>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: { xs: 2, md: 2.5 } }}>
               Keep attending events and contributing to earn more karma!
             </Typography>
             <Button
               variant="contained"
               fullWidth
               onClick={() => navigate('/profile')}
+              sx={{ py: { xs: 1.25, md: 1.5 } }}
             >
               View Profile
             </Button>
           </Paper>
 
           {/* Quick Actions */}
-          <Paper sx={{ p: 3, mb: 3 }}>
-            <Typography variant="h6" gutterBottom>
+          <Paper sx={{ p: { xs: 2.5, md: 3 }, mb: { xs: 2, md: 3 } }}>
+            <Typography variant="h6" sx={{ mb: { xs: 1.5, md: 2 } }}>
               Quick Actions
             </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1.5, md: 2 } }}>
               <Button
                 variant="outlined"
                 fullWidth
                 startIcon={<EventIcon />}
                 onClick={() => navigate('/events')}
+                sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 Browse Events
               </Button>
@@ -173,6 +178,7 @@ const HomeScreen = () => {
                 fullWidth
                 startIcon={<GroupsIcon />}
                 onClick={() => navigate('/communities')}
+                sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 Explore Communities
               </Button>
@@ -181,6 +187,7 @@ const HomeScreen = () => {
                 fullWidth
                 startIcon={<TicketIcon />}
                 onClick={() => navigate('/tickets')}
+                sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 My Tickets
               </Button>
@@ -189,6 +196,7 @@ const HomeScreen = () => {
                 fullWidth
                 startIcon={<CalendarIcon />}
                 onClick={() => navigate('/karma')}
+                sx={{ py: { xs: 1, md: 1.25 } }}
               >
                 Karma History
               </Button>
@@ -196,12 +204,12 @@ const HomeScreen = () => {
           </Paper>
 
           {/* Active Communities Quick View */}
-          <Paper sx={{ p: 3 }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Paper sx={{ p: { xs: 2.5, md: 3 } }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: { xs: 1.5, md: 2 } }}>
               <Typography variant="h6">Active Communities</Typography>
               <Chip label={userCommunities.length} size="small" color="primary" />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1.5, md: 2 } }}>
               {userCommunities.slice(0, 4).map((community) => (
                 <Box
                   key={community.id}
@@ -210,15 +218,16 @@ const HomeScreen = () => {
                     alignItems: 'center',
                     gap: 1.5,
                     cursor: 'pointer',
-                    p: 1,
-                    borderRadius: 1,
+                    p: { xs: 1, md: 1.25 },
+                    borderRadius: 1.5,
+                    transition: 'background-color 0.2s',
                     '&:hover': {
                       bgcolor: 'action.hover',
                     },
                   }}
                   onClick={() => navigate(`/communities/${community.id}`)}
                 >
-                  <Avatar src={community.image} sx={{ width: 40, height: 40 }} />
+                  <Avatar src={community.image} sx={{ width: { xs: 36, md: 40 }, height: { xs: 36, md: 40 } }} />
                   <Box sx={{ flex: 1, minWidth: 0 }}>
                     <Typography variant="subtitle2" noWrap>
                       {community.name}
@@ -235,7 +244,7 @@ const HomeScreen = () => {
                 variant="text"
                 fullWidth
                 size="small"
-                sx={{ mt: 2 }}
+                sx={{ mt: { xs: 1.5, md: 2 } }}
                 onClick={() => navigate('/communities')}
               >
                 View All

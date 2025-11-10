@@ -529,7 +529,7 @@ const WelcomeScreen = () => {
             fullWidth
             variant="outlined"
             color="primary"
-            onClick={() => navigate('/setup-profile')}
+            onClick={() => navigate('/signup')}
             sx={{
               mb: 4,
               py: 1.75,
@@ -538,7 +538,7 @@ const WelcomeScreen = () => {
               borderWidth: 1.5,
             }}
           >
-            Create Your Profile
+            Sign Up
           </Button>
 
           {/* Demo Login Button */}

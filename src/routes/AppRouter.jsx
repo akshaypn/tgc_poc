@@ -48,6 +48,7 @@ const AppRouter = () => {
         path="/login"
         element={isAuthenticated ? <Navigate to="/" replace /> : <WelcomeScreen />}
       />
+      <Route path="/signup" element={<ProfileSetupScreen />} />
       <Route path="/setup-profile" element={<ProfileSetupScreen />} />
 
       {/* Protected Participant Routes */}

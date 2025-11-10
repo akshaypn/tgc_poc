@@ -1,0 +1,14 @@
+# add node_modules to the gitignore file
+node_modules/
+# add dist to the gitignore file
+dist/
+# add .env to the gitignore file
+.env
+# add .env.local to the gitignore file
+.env.local
+# add .env.development.local to the gitignore file
+.env.development.local
+# add .env.test.local to the gitignore file
+.env.test.local
+# add .env.production.local to the gitignore file
+.env.production.local

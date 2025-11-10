@@ -58,6 +58,7 @@ const WelcomeScreen = () => {
   return (
     <Box
       sx={{
+        width: '100%',
         minHeight: '100vh',
         display: 'flex',
         position: 'relative',

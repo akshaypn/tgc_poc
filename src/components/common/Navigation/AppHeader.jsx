@@ -61,7 +61,6 @@ const AppHeader = ({ onMenuClick }) => {
         {isMobile && (
           <IconButton
             edge="start"
-            color="inherit"
             aria-label="menu"
             onClick={onMenuClick}
             sx={{ mr: 2, display: { md: "none" } }}
